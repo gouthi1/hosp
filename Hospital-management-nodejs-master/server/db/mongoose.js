@@ -1,9 +1,9 @@
-var mongoose = require ('mongoose');
-
-
+var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-//change the database with yours
-mongoose.connect("mongodb://admin:admin123@ds145220.mlab.com:45220/nhs-app");
+// Change the database URI with yours
+const uri = "mongodb+srv://gouthamkrishnamarolix:vAgACtfWlrr7oZQr@cluster0.tgtccal.mongodb.net/your-database-name?retryWrites=true&w=majority";
 
-module.exports = {mongoose};
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB Atlas'))
+  .catch(err => console.error('Error connecting to MongoDB Atlas:', err));
